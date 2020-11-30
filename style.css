@@ -1,0 +1,182 @@
+@import url("https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap");
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  /* Typography */
+  --fs-body: 0.75rem;
+  --ff-body: "Kumbh Sans", sans-serif;
+  --fw-bold: 700;
+  --fw-regular: 400;
+
+  /* Colors - Text Primary */
+  --clr-soft-violet: #af67e9;
+  --clr-soft-blue: hsl(240, 73%, 65%);
+
+  /* Colors - Text */
+  --clr-gray-blue-700: hsl(237, 12%, 33%);
+  --clr-gray-blue-400: hsl(240, 6%, 50%);
+  --clr-dark-blue: hsl(238, 29%, 16%);
+
+  /* Divider */
+  --clr-gray-blue-200: hsl(240, 5%, 91%);
+}
+
+html,
+body {
+  min-height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--ff-body);
+  font-size: var(--fs-body);
+  background: rgb(175, 103, 233);
+  background: linear-gradient(
+    180deg,
+    rgba(175, 103, 233, 1) 28%,
+    rgba(101, 101, 231, 1) 100%
+  );
+  background-repeat: no-repeat;
+  background-size: cover;
+  line-height: 1.5;
+}
+
+.desktop {
+  display: none;
+}
+
+.illustration-container {
+  position: relative;
+}
+
+.illustration {
+  position: absolute;
+  top: -200px;
+  left: 0px;
+}
+
+.shadow {
+  position: absolute;
+  top: -100px;
+  left: 30px;
+}
+
+.accordion-card {
+  position: relative;
+  margin-top: 10rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 7.5em 1.5em 3em 1.5em;
+  background-color: white;
+  border-radius: 1rem;
+  max-width: 330px;
+}
+
+.accordion-header {
+  text-align: center;
+  font-size: 2rem;
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
+}
+
+.panel {
+  border-bottom: 1px solid var(--clr-gray-blue-200);
+}
+
+.panel-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+  color: var(--clr-gray-blue-400);
+}
+
+.panel-title {
+  display: flex;
+  padding: 1em 0;
+  justify-content: space-between;
+  color: black;
+}
+
+.panel-title::after {
+  content: url("images/icon-arrow-down.svg");
+  transition-duration: 0.8s;
+}
+
+.attribution {
+  margin-top: 2em;
+}
+
+.active {
+  font-weight: var(--fw-bold);
+}
+
+.active::after {
+  content: url("images/icon-arrow-down.svg");
+  transform: rotate(180deg);
+}
+
+@media (min-width: 800px) {
+  body {
+    background: rgb(175, 103, 233);
+    background: linear-gradient(
+      180deg,
+      rgba(175, 103, 233, 1) 0%,
+      rgba(101, 101, 231, 1) 100%
+    );
+  }
+
+  .accordion-card {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template: "illustration illustration illustration panels panels";
+    gap: 2em;
+    padding: 6em 6em 6em 0;
+    background-image: url("images/bg-pattern-desktop.svg");
+    background-repeat: no-repeat;
+    background-position: top -350px left -670px;
+    max-width: 750px;
+  }
+
+  .desktop {
+    display: block;
+  }
+
+  .accordion-header {
+    margin-top: 0;
+    text-align: left;
+  }
+
+  .shadow {
+    display: none;
+  }
+
+  .illustration {
+    display: none;
+  }
+
+  .box {
+    position: absolute;
+    left: -60px;
+    top: 100px;
+    width: 40%;
+  }
+
+  .illustration-container {
+    grid-area: illustration;
+    width: 350px;
+    background-image: url("images/illustration-woman-online-desktop.svg");
+    background-repeat: no-repeat;
+    background-position: top 0px left -45px;
+    background-size: 100%;
+  }
+
+  .accordion-panels {
+    grid-area: panels;
+  }
+}
